@@ -16,3 +16,8 @@ Base::~Base()
 {
 	std::cout << "Base Destructor called" << std::endl;
 }
+
+Base	*generate(void)
+{
+	Base* p;
+	
