@@ -6,7 +6,7 @@
 /*   By: pmaimait <pmaimait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:19:52 by pmaimait          #+#    #+#             */
-/*   Updated: 2023/12/04 11:28:52 by pmaimait         ###   ########.fr       */
+/*   Updated: 2023/12/04 14:26:26 by pmaimait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int main(void)
         b->getValues();
     }
     {
-         Data originalData;
+        Data originalData;
 
         originalData.int_value = 42;
         

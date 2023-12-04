@@ -6,7 +6,7 @@
 /*   By: pmaimait <pmaimait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 11:32:07 by pmaimait          #+#    #+#             */
-/*   Updated: 2023/12/04 14:17:47 by pmaimait         ###   ########.fr       */
+/*   Updated: 2023/12/04 14:29:45 by pmaimait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,16 +80,16 @@ int	main(void)
 	Base *p;
     p = generate();
     
-	identify(*p);
 	identify(p);
+	identify(*p);
 
 	delete p;
 
 	Base *p2 = NULL;
     p2 = generate();
 
-	identify(*p2);
 	identify(p2);
+	identify(*p2);
 
 	delete p2;
 	return 0;
