@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serialization.hpp                                  :+:      :+:    :+:   */
+/*   Serializer.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmaimait <pmaimait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:19:29 by pmaimait          #+#    #+#             */
-/*   Updated: 2023/11/29 18:20:13 by pmaimait         ###   ########.fr       */
+/*   Updated: 2023/12/04 11:22:43 by pmaimait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZATION_HPP
-#define SERIALIZATION_HPP
+#ifndef SERIALIZER_HPP
+#define SERIALIZER_HPP
 
 #include <iostream>
 #include <stdint.h>
 
 struct Data
 {
-	std::string	str_value;
+	std::string	name;
 	int 		int_value;
 	void		getValues() const;
 };
 
-class Serialization
+class Serializer
 {
 	private:
-		Serialization();
-		Serialization(Serialization const &obj);
-		~Serialization();
-		Serialization &operator=(Serialization const &obj);
+		Serializer();
+		Serializer(Serializer const &obj);
+		~Serializer();
+		Serializer &operator=(Serializer const &obj);
 
 	public:
 		static uintptr_t serialize(Data *ptr);

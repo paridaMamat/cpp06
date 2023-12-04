@@ -6,37 +6,57 @@
 /*   By: pmaimait <pmaimait@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:19:52 by pmaimait          #+#    #+#             */
-/*   Updated: 2023/11/29 18:21:02 by pmaimait         ###   ########.fr       */
+/*   Updated: 2023/12/04 11:28:52 by pmaimait         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Serialization.hpp"
+#include "../includes/Serializer.hpp"
 
 int main(void)
 {
     {
-        Data *launch = new Data;
+        Data *A = new Data;
 
-        launch->str_value = "Str de test - Amazing string save !";
-        launch->int_value = -42;
+        A->name = "A";
+        A->int_value = -42;
 
-        uintptr_t utest = Serialization::serialize(launch);
+        uintptr_t uintp = Serializer::serialize(A);
 
-        Data *receive = Serialization::deserialize(utest);
-        receive->getValues();
+        Data *b = Serializer::deserialize(uintp);
+        b->getValues();
 
-        delete launch;
+        delete A;
     }
     {
-        Data launch;
+        Data a;
 
-        launch.str_value = "Str de test2 - Amazing string save without new ? This performance is possible ?!";
-        launch.int_value = 56;
+        a.name = "a";
+        a.int_value = 56;
+        
+        uintptr_t uintp = Serializer::serialize(&a);
 
-        uintptr_t utest = Serialization::serialize(&launch);
+        Data *b = Serializer::deserialize(uintp);
+        b->getValues();
+    }
+    {
+         Data originalData;
 
-        Data *receive = Serialization::deserialize(utest);
-        receive->getValues();
+        originalData.int_value = 42;
+        
+        uintptr_t serializedValue = Serializer::serialize(&originalData);
+
+
+        Data* deserializedData = Serializer::deserialize(serializedValue);
+
+
+        if (deserializedData == &originalData) 
+        {
+            std::cout << "Serialization and deserialization successful!" << std::endl;
+            std::cout << "Original Data value: " << originalData.int_value << "  Deserialized Data value: " << deserializedData->int_value << std::endl;
+        } else 
+        {
+            std::cout << "Serialization and deserialization failed!" << std::endl;
+        }
     }
         return (0);
 }
